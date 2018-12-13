@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The response</title>
+</head>
+<body>
+	{% for i in answers%}
+		<h1> {{i["name"]}}:  </h1>
+		<h1> {{i["value"]}} </h1>
+		<br>
+	{% endfor %}
+</body>
+</html>
