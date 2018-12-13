@@ -30,10 +30,11 @@ def study_image():
 	response = requests.post(api_url, headers=headers, data=json.dumps(data))
 	response_dict = json.loads(response.content)
 	works = response_dict["outputs"][0]["data"]["concepts"]
+	for i in works:
+		if "man" in i.values() or "woman" in i.values() or "people" in i.values():
+			return render_template('human.html')
 	#trying = json.loads(trying)
-
-
-	return render_template('display_response.html', answers=works)
+	return render_template('display_response.html', answers=works, link = image_url)
 
 if __name__ == '__main__':
 	app.run(debug=True)
